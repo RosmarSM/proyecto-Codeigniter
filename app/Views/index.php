@@ -1,4 +1,4 @@
-<!-- featured 
+<!-- Contenido de la Pagina 
     ================================================== -->
     <section class="s-featured">
         <div class="row">
