@@ -33,6 +33,27 @@ class Dashboard extends Controller{
         ]);*/
     }
 
+    public function uploadPost(){
+
+        if ($_POST) {
+            //seleccionar el archivo en la etiqueta banner
+            $file = $this->request->getFile("banner");
+            //Asignarle un nombre aleatoria al archivo
+            $fileName=$file->getRandomName();
+            //si el archivo es valido
+            if ($file->isValid()) {
+                //mover el archivo a la carpeta writable\uploads 
+                //$file->move(WRITEPATH."uploads"); con $file
+                $file->move(WRITEPATH."uploads", $fileName);
+            }else {
+                echo "No valido";
+            }
+        }
+
+        //$this->loadViews("uploadPost");
+        echo view("uploadPost");
+    }
+
     public function loadViews($view=null){
         echo view("includes/header");
         echo view($view);
